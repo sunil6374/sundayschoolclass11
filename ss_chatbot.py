@@ -17,6 +17,7 @@ Please provide the most accurate results based on the context.
 {context}
 Question: {input} """)
 
+groq_api_key = st.secrets["GROQ_API_KEY"]
 st.session_state.embeddings=OllamaEmbeddings(model='nomic-embed-text:latest')
 st.session_state.loader=PyPDFDirectoryLoader('data')
 st.session_state.docs=st.session_state.loader.load()
