@@ -1,0 +1,10 @@
+langchain-openai
+langchain
+python-dotenv
+langchain-community
+langchain-ollama
+langchain-core
+streamlit
+langchain-groq
+faiss-cpu
+pypdf
