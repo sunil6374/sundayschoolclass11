@@ -8,5 +8,4 @@ streamlit
 langchain-groq
 faiss-cpu
 pypdf
-langchain-huggingface
-sentence-transformers
+langchain-google-genai
