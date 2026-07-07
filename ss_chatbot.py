@@ -6,8 +6,8 @@ from langchain_community.document_loaders import PyPDFDirectoryLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_classic.chains import create_retrieval_chain
-from langchain_classic.chains.combine_documents import create_stuff_documents_chain
-from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_google_genai import GoogleGenerativeAIEmbeddings
+
 
 
 load_dotenv()
@@ -19,7 +19,8 @@ Please provide the most accurate results based on the context.
 Question: {input} """)
 
 groq_api_key = st.secrets["GROQ_API_KEY"]
-st.session_state.embeddings=HuggingFaceEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+google_api_key=st.secrets["GOOGLE_API_KEY"
+st.session_state.embeddings=GoogleGenerativeAIEmbeddings(model="models/text-embedding-004")
 st.session_state.loader=PyPDFDirectoryLoader('data')
 st.session_state.docs=st.session_state.loader.load()
 st.session_state.splitter=RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
