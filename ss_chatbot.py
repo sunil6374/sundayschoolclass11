@@ -7,6 +7,8 @@ from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_community.vectorstores import FAISS
 from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
+from langchain_huggingface import HuggingFaceEmbeddings
+
 
 load_dotenv()
 
@@ -17,7 +19,7 @@ Please provide the most accurate results based on the context.
 Question: {input} """)
 
 groq_api_key = st.secrets["GROQ_API_KEY"]
-st.session_state.embeddings=OllamaEmbeddings(model='nomic-embed-text:latest')
+st.session_state.embeddings=HuggingFaceEmbeddings(model='"BAAI/bge-small-en-v1.5"')
 st.session_state.loader=PyPDFDirectoryLoader('data')
 st.session_state.docs=st.session_state.loader.load()
 st.session_state.splitter=RecursiveCharacterTextSplitter(chunk_size=1000,chunk_overlap=200)
